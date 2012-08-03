@@ -12,7 +12,12 @@ Middleware to provide [dcm4chee][1] functionality to [OpenMRS][2].
 4. `bundle` to install dependencies
 5. `ruby application.rb` to start server in 4567 port
 
+#Get a console
+1. `cd` into your application directory
+2. `tux` gives you a [interactive sinatra console][4]
 
   [1]: http://www.dcm4che.org/
   [2]: http://openmrs.org/
   [3]: https://rvm.io/rvm/install/
+  [4]: http://tagaholic.me/2011/04/10/tux-a-sinatra-console.html
+
