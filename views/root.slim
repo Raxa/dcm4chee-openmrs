@@ -1,16 +1,19 @@
 - content_for :head do
   == css 'css/root.css'
+  == css 'lib/css/jquery.dataTables.css'
+  == css 'lib/css/jquery.dataTables_themeroller.css'
   script src='js/root.js'
+  script src='lib/data_tables.js'
 .openmrs-logo
 .dcm4che-logo
 .tabs
   ul
     li
-      a href="#config" Configuration
+      a href="#more" Patients
     li
-      a href="#more" More
+      a href="#config" Configuration
+  #more
+    == render :slim, :'patients/index', {}, patients: patients
   #config
     == text 'OpenMRS url', 'openmrs_url', 'example localhost:8080/openmrs'
     == text 'dcm4chee url', 'dcm4chee_url', 'example localhost:8089/dcm4chee-web3/'
-  #more
-    p More options

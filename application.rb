@@ -1,12 +1,20 @@
+require 'rubygems'
+require 'bundler'
+Bundler.require(:default)
 require 'sinatra'
 require 'sinatra/content_for'
-require "sinatra/reloader" if development?
+require './config/development' if development?
 require 'slim'
 require 'stylus'
 load 'helpers.rb'
+require 'data_mapper'
+Dir['models/**/*.rb'].each {|file| load file}
+
+DataMapper::Logger.new 'logs/data_mapper.log', :debug
+DataMapper.setup :default, 'mysql://openmrs_user:ZWecnpP0&r.A@127.0.0.1:3316/openmrs'
 
 get '/' do
-  slim :root
+  slim :root,{}, patients: Patient.all
 end
 
 get '/js/:path.js' do
