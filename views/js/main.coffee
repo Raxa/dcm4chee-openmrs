@@ -1,5 +1,5 @@
 $ ->
   $('.tabs').tabs selected: 0
 
-  $('table.data').dataTable()
-
+  $('table.dt').dataTable
+    bJQueryUI: true

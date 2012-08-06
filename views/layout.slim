@@ -4,8 +4,10 @@ head
   script src='lib/jquery.js'
   script src='lib/jquery_ui.js'
   script src='js/main.js'
-  == css 'lib/jquery_ui_theme/jquery-ui.css'
+  == css 'lib/themes/flickr/jquery-ui.css'
   == css 'css/main.css'
   == yield_content :head
 body
+  .openmrs-logo
+  .dcm4che-logo
   == yield
