@@ -1,4 +1,4 @@
-dcm4che-openmrs
+dcm4chee-openmrs
 ===
 
 Middleware to provide [dcm4chee][1] functionality to [OpenMRS][2].
