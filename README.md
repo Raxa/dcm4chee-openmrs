@@ -10,7 +10,8 @@ Middleware to provide [dcm4chee][1] functionality to [OpenMRS][2].
 2. `git clone git@github.com:juanpastas/dcm4chee-opemrs.git` fetches code into `dcm4che-openmrs` new folder
 3. `cd` into newly created folder
 4. `bundle` to install dependencies
-5. `ruby application.rb` to start server in 4567 port
+5. for the moment, edit `application.rb` at line 14 with sql server credentials
+6. `ruby application.rb` to start server in 4567 port
 
 #Get a console
 1. `cd` into your application directory
