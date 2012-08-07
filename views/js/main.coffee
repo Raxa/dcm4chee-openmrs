@@ -3,3 +3,5 @@ $ ->
 
   $('table.dt').dataTable
     bJQueryUI: true
+
+  $('.btn').button()

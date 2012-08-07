@@ -10,17 +10,24 @@ load 'helpers.rb'
 require 'data_mapper'
 Dir['models/**/*.rb'].each {|file| load file}
 
+use Rack::Protection, except: :session_hijacking
+
 DataMapper::Logger.new 'logs/data_mapper.log', :debug
 DataMapper.setup :default, 'mysql://openmrs_user:ZWecnpP0&r.A@127.0.0.1:3316/openmrs'
 
 get '/' do
-  slim :root,{}, patients: Patient.all
+  @patients = Patient.all
+  slim :root
 end
 
-get '/js/:path.js' do
-  coffee :"js/#{params[:path]}"
+get /(.*).js/ do |path|
+  coffee :"#{path}"
 end
 
-get '/css/:path.css' do
-  stylus :"css/#{params[:path]}"
+get /(.*).css/ do |path|
+  stylus :"#{path}"
+end
+
+get '/test' do
+  slim :'test/index', layout: false
 end

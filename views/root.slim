@@ -3,7 +3,6 @@
   == css 'lib/data_tables/css/data_tables.css'
   script src='js/root.js'
   script src='lib/data_tables.js'
-  script src='lib/theme_switcher.js'
 .tabs
   ul
     li
@@ -11,7 +10,6 @@
     li
       a href="#config" Configuration
   #more
-    == render :slim, :'patients/index', {}, patients: patients
+    == slim :'patients/index'
   #config
-    == text 'OpenMRS url', 'openmrs_url', 'example localhost:8080/openmrs'
-    == text 'dcm4chee url', 'dcm4chee_url', 'example localhost:8089/dcm4chee-web3/'
+    == slim :settings
