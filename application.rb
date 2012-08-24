@@ -13,11 +13,15 @@ Dir['models/**/*.rb'].each {|file| load file}
 use Rack::Protection, except: :session_hijacking
 
 DataMapper::Logger.new 'logs/data_mapper.log', :debug
-DataMapper.setup :default, 'mysql://openmrs_user:ZWecnpP0&r.A@127.0.0.1:3316/openmrs'
+# DataMapper.setup :default, Image.Settings[:sql_url]
 
 get '/' do
   @patients = Patient.all
   slim :root
+end
+
+post '/settings' do
+  #Settings[:openmrs_sql_url] = params[:]
 end
 
 get /(.*).js/ do |path|
@@ -29,5 +33,6 @@ get /(.*).css/ do |path|
 end
 
 get '/test' do
+  load ''
   slim :'test/index', layout: false
 end
