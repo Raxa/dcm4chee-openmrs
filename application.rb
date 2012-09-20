@@ -3,17 +3,13 @@ require 'bundler'
 Bundler.require(:default)
 require 'sinatra'
 require 'sinatra/content_for'
-require './config/development' if development?
 require 'slim'
 require 'stylus'
-load 'helpers.rb'
 require 'data_mapper'
-Dir['models/**/*.rb'].each {|file| load file}
 
-use Rack::Protection, except: :session_hijacking
-
-DataMapper::Logger.new 'logs/data_mapper.log', :debug
-# DataMapper.setup :default, Image.Settings[:sql_url]
+['models/**/*.rb', 'config/**/*.rb', 'helpers.rb'].each do |path|
+  Dir[path].each {|file| load file}
+end
 
 get '/' do
   @patients = Patient.all
@@ -24,11 +20,11 @@ post '/settings' do
   #Settings[:openmrs_sql_url] = params[:]
 end
 
-get /(.*).js/ do |path|
+get(/(.*).js/) do |path|
   coffee :"#{path}"
 end
 
-get /(.*).css/ do |path|
+get(/(.*).css/) do |path|
   stylus :"#{path}"
 end
 
