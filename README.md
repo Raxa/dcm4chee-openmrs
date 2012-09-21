@@ -17,8 +17,21 @@ Middleware to provide [dcm4chee][1] functionality to [OpenMRS][2].
 1. `cd` into your application directory
 2. `tux` gives you a [interactive sinatra console][4]
 
+#Testing
+I've installed [autotest-growl][5] (see link for installation details),
+[autotest-fsevent][6] (see that
+autotest-fsevent is replaced by [autotest-inotify][7] in Linux) and
+[rspec][8], see
+how they work [here][9], to just
+use them enter `autotest` when in the project directory
+
   [1]: http://www.dcm4che.org/
   [2]: http://openmrs.org/
   [3]: https://rvm.io/rvm/install/
   [4]: http://tagaholic.me/2011/04/10/tux-a-sinatra-console.html
+  [5]: https://github.com/svoop/autotest-growl
+  [6]: https://github.com/svoop/autotest-fsevent
+  [7]: https://github.com/ewollesen/autotest-inotify
+  [8]: http://rspec.info/
+  [9]: http://net.tutsplus.com/tutorials/ruby/how-to-integrate-rspec-into-a-sinatra-app/
 
